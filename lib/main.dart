@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/data/datasources/auth_local_datasources.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/register/register_bloc.dart';
-import 'package:ecommerce_app/presentation/auth/splash_screen.dart';
+import 'package:ecommerce_app/presentation/auth/login_screen.dart';
+import 'package:ecommerce_app/presentation/home/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +30,16 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        home: FutureBuilder<bool>(
+          future: AuthLocalDataSource().isLogin(),
+          builder: (context, snapshot) {
+            if (snapshot.data != null && snapshot.data!) {
+              return const DashboardScreen();
+            } else {
+              return const LoginScreen();
+            }
+          },
+        ),
       ),
     );
   }

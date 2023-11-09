@@ -3,6 +3,7 @@ import 'package:ecommerce_app/common/components/custom_textfield.dart';
 import 'package:ecommerce_app/common/components/space_height.dart';
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
+import 'package:ecommerce_app/data/datasources/auth_local_datasources.dart';
 import 'package:ecommerce_app/data/models/requests/login_request_model.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/register_screen.dart';
@@ -80,7 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
             listener: (context, state) {
               state.maybeWhen(
                 orElse: () {},
-                success: (data) {
+                success: (data) async {
+                  AuthLocalDataSource().saveAuthData(data);
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
