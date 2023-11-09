@@ -5,6 +5,7 @@ class Images {
   static const String iconSearch = 'assets/icons/Search.png';
   static const String iconCart = 'assets/icons/Cart.png';
   static const String iconUser = 'assets/icons/User.png';
+
   static const String product1 = 'assets/images/product1.png';
   static const String product2 = 'assets/images/product2.png';
   static const String product3 = 'assets/images/product3.png';

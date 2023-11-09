@@ -3,6 +3,7 @@
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
 import 'package:ecommerce_app/presentation/account/account_screen.dart';
+import 'package:ecommerce_app/presentation/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
 
   final List<Widget> _pages = [
-    const Center(child: Text('Home Screen')),
+    const HomeScreen(),
     const Center(child: Text('Explore Screen')),
     const Center(child: Text('Cart Screen')),
     const AccountScreen(),
