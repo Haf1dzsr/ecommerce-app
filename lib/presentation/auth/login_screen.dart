@@ -82,19 +82,21 @@ class _LoginScreenState extends State<LoginScreen> {
               state.maybeWhen(
                 orElse: () {},
                 success: (data) async {
-                  AuthLocalDataSource().saveAuthData(data);
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const DashboardScreen(),
-                    ),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Berhasil Login!'),
-                      backgroundColor: Colors.green,
-                    ),
-                  );
+                  await AuthLocalDataSource().saveAuthData(data);
+                  if (context.mounted) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DashboardScreen(),
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Berhasil Login!'),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                  }
                 },
                 error: (message) {
                   ScaffoldMessenger.of(context).showSnackBar(

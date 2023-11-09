@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         home: FutureBuilder<bool>(
           future: AuthLocalDataSource().isLogin(),
           builder: (context, snapshot) {
-            if (snapshot.data != null && snapshot.data!) {
+            if (snapshot.data != null && snapshot.data! == true) {
               return const DashboardScreen();
             } else {
               return const LoginScreen();

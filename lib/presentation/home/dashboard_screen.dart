@@ -2,6 +2,7 @@
 
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
+import 'package:ecommerce_app/presentation/account/account_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     const Center(child: Text('Home Screen')),
     const Center(child: Text('Explore Screen')),
     const Center(child: Text('Cart Screen')),
-    const Center(child: Text('Account Screen')),
+    const AccountScreen(),
   ];
 
   void _onItemTapped(int index) {
