@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/register/register_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => RegisterBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LoginBloc(),
         ),
       ],
       child: MaterialApp(

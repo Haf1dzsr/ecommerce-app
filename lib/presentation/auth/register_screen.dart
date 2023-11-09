@@ -5,7 +5,7 @@ import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
 import 'package:ecommerce_app/data/models/requests/register_request_model.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/register/register_bloc.dart';
-import 'package:ecommerce_app/presentation/home/dashboard_screen.dart';
+import 'package:ecommerce_app/presentation/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DashboardScreen(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(
