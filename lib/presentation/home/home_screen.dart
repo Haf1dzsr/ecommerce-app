@@ -2,6 +2,7 @@ import 'package:ecommerce_app/common/components/search_input.dart';
 import 'package:ecommerce_app/common/components/space_height.dart';
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
+import 'package:ecommerce_app/presentation/cart/cart_screen.dart';
 import 'package:ecommerce_app/presentation/home/bloc/products/products_bloc.dart';
 import 'package:ecommerce_app/presentation/home/widgets/category_button.dart';
 import 'package:ecommerce_app/presentation/home/widgets/image_slider.dart';
@@ -108,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SizedBox()),
+                              builder: (context) => const CartScreen()),
                         );
                       },
                       icon: Image.asset(
