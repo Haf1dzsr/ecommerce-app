@@ -3,8 +3,10 @@ import 'package:ecommerce_app/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/bloc/register/register_bloc.dart';
 import 'package:ecommerce_app/presentation/auth/login_screen.dart';
 import 'package:ecommerce_app/presentation/cart/bloc/cart/cart_bloc.dart';
+import 'package:ecommerce_app/presentation/cart/bloc/order/order_bloc.dart';
 import 'package:ecommerce_app/presentation/dashboard/dashboard_screen.dart';
 import 'package:ecommerce_app/presentation/home/bloc/products/products_bloc.dart';
+import 'package:ecommerce_app/presentation/payment/bloc/order_detail/order_detail_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,6 +33,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CartBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OrderBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OrderDetailBloc(),
         ),
       ],
       child: MaterialApp(

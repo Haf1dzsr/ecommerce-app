@@ -108,11 +108,9 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              if (widget.data.quantity >= 0) {
-                                context
-                                    .read<CartBloc>()
-                                    .add(CartEvent.add(widget.data));
-                              }
+                              context
+                                  .read<CartBloc>()
+                                  .add(CartEvent.add(widget.data));
                             },
                             child: Container(
                               color: ColorName.white,

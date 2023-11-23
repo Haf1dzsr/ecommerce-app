@@ -1,7 +1,9 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:ecommerce_app/common/components/search_input.dart';
 import 'package:ecommerce_app/common/components/space_height.dart';
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
+import 'package:ecommerce_app/presentation/cart/bloc/cart/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/cart/cart_screen.dart';
 import 'package:ecommerce_app/presentation/home/bloc/products/products_bloc.dart';
 import 'package:ecommerce_app/presentation/home/widgets/category_button.dart';
@@ -104,7 +106,35 @@ class _HomeScreenState extends State<HomeScreen> {
               const Spacer(),
               Row(
                 children: [
-                  IconButton(
+                  badges.Badge(
+                    badgeContent: BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          orElse: () {
+                            return const Text(
+                              '0',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            );
+                          },
+                          loaded: (carts) {
+                            int totalQty = 0;
+                            for (var cart in carts) {
+                              totalQty += cart.quantity;
+                            }
+
+                            return Text(
+                              totalQty.toString(),
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                    child: IconButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -115,7 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Image.asset(
                         Images.iconBuy,
                         height: 24.0,
-                      )),
+                      ),
+                    ),
+                  ),
                   IconButton(
                       onPressed: () {
                         Navigator.push(
