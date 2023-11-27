@@ -67,7 +67,7 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
               return ListView.separated(
                 padding: const EdgeInsets.all(16.0),
                 separatorBuilder: (context, index) => const SpaceHeight(16.0),
-                itemCount: addresses.length,
+                itemCount: data.data.length,
                 itemBuilder: (context, index) => AddressTile(
                   isSelected: idAddress == data.data[index].id,
                   data: data.data[index],

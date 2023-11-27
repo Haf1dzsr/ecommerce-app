@@ -3,6 +3,7 @@
 import 'package:ecommerce_app/common/constants/colors.dart';
 import 'package:ecommerce_app/common/constants/images.dart';
 import 'package:ecommerce_app/presentation/account/account_screen.dart';
+import 'package:ecommerce_app/presentation/cart/cart_screen.dart';
 import 'package:ecommerce_app/presentation/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _pages = [
     const HomeScreen(),
-    const Center(child: Text('Explore Screen')),
-    const Center(child: Text('Cart Screen')),
+    // const Center(child: Text('Explore Screen')),
+    const CartScreen(),
     const AccountScreen(),
   ];
 
@@ -45,10 +46,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 icon: ImageIcon(AssetImage(Images.iconHome)),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(Images.iconSearch)),
-                label: 'Explore',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: ImageIcon(AssetImage(Images.iconSearch)),
+              //   label: 'Explore',
+              // ),
               BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(Images.iconCart)),
                 label: 'Cart',
